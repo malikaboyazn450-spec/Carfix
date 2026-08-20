@@ -22,6 +22,12 @@ jobs:
       - name: Get Dependencies
         run: flutter pub get
 
+      - name: Add Android Platform Support
+        run: |
+          if [ ! -d "android" ]; then
+            flutter create . --platforms=android --org com.carfix --project-name carfix
+          fi
+
       - name: Build APK Release
         run: flutter build apk --release
 
