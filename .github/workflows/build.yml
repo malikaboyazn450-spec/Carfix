@@ -19,14 +19,8 @@ jobs:
         with:
           flutter-version: '3.19.0'
 
-      - name: Create Clean App
-        run: flutter create . --org com.carfix --project-name carfix --force
-
-      - name: Restore User Files
-        run: |
-          # نضمن أن مجلد lib وكود main.dart الخاص بك في مكانه الصحيح
-          mkdir -p lib
-          # إذا كان الملف في مكان آخر، سنتركه يعتمد على ملفاتك الموجودة
+      - name: Get Dependencies
+        run: flutter pub get
 
       - name: Build APK Release
         run: flutter build apk --release
